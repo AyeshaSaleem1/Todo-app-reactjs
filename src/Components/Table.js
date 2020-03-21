@@ -8,14 +8,15 @@ class Table extends React.Component {
         super(props);
         this.state = {
             rows: [],
-            count: 0,
-            task_done : []
+            task_done : [],
+            taskName_array : this.props.taskName_array,
+         //   showList : this.props.testProps
         };
     }
     render() {
-        const { count } = this.state
-        console.log("task name in table===>", this.props.taskName_array + "                " + this.props.testProps)
-
+        const { task_done,taskName_array} = this.state
+       // this.setState({taskName_array : this.props.taskName_array});
+        console.log("task name in table===>", this.state.taskName_array + "                " + this.props.testProps)
         return (
             this.props.testProps
             &&
@@ -42,9 +43,8 @@ class Table extends React.Component {
         var a = this.props.taskName_array.indexOf(taskName)
         var upd = prompt("Update the desire task...");
         this.props.taskName_array.splice(a, 1, upd);
+        this.setState({taskName_array : this.props.taskName_array})
         console.log('update    ' + this.props.taskName_array);
-       // this.render();
-         this.forceUpdate();
     }
 
     _delete(taskName) {
@@ -57,15 +57,13 @@ class Table extends React.Component {
             console.log( this.state.task_done)
             this.state.task_done.splice( this.state.task_done.indexOf(taskName),1);
             console.log( this.state.task_done)
+            this.setState({taskName_array : this.props.taskName_array})
         }
-        this.forceUpdate();
     }
     done(taskName)
     {
        this.state.task_done.push( taskName) ;
       this.setState({ task_done : this.state.task_done });
-        this.forceUpdate();
-
     }
 }
 
