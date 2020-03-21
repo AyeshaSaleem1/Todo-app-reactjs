@@ -4,11 +4,6 @@ import React from 'react'
 class Row_data extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            rows: [],
-            count: 0,
-            task_done :''
-        };
     }
     render() {
 return(
