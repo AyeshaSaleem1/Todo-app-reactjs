@@ -22,14 +22,14 @@ class Table extends React.Component {
     }
 
     render() {
-        const { task_done, taskName_array, hasTask } = this.state
+        const { taskName_array, hasTask } = this.state
         console.log("task name in table===>", taskName_array + "                " + hasTask)
         return (
             hasTask
             &&
             (
-                <div id="d1">
-                    <table id='ul1'>
+                <>
+                    <table id='d1'>
                         {this.props.taskName_array.map((r) => (
                             <tr>
                                 <Row_data task={r} task_done={this.state.task_done} />
@@ -40,11 +40,11 @@ class Table extends React.Component {
                         ))}
 
                     </table>
-                </div>
+                </>
             )
         );
     }
-    
+
     update(taskName) {
 
         const { taskName_array } = this.state
@@ -71,7 +71,7 @@ class Table extends React.Component {
         }
         this.setState({ taskName_array: taskName_array })
     }
-    
+
     done(taskName) {
         const { task_done } = this.state;
         task_done.push(taskName);

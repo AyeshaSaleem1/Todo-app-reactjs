@@ -8,7 +8,7 @@ class SearchBar extends React.Component {
         super(props);
         this.state = {
             taskName: '',
-            rows: []
+            rows: [],
         };
 
     }
@@ -24,11 +24,12 @@ class SearchBar extends React.Component {
     }
 
     addRow = () => {
-    
-        if (document.getElementById('task').value != '') {
-            var rows = this.state.rows
-            if (!rows.includes(this.state.taskName)) {
-                rows.push(this.state.taskName)
+
+     const {rows,taskName} = this.state
+        if (document.getElementById('task').value != '') 
+        {
+            if (!rows.includes(taskName)) {
+                rows.push(taskName)
                 this.setState({ rows: rows })
             }
             else {

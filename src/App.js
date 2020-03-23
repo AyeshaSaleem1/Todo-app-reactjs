@@ -25,14 +25,11 @@ class App extends React.Component {
   render() {
     const { taskName_array } = this.state
     return (
-      <div className="App">
+      <>
         <Heading />
         <SearchBar testFun={this.test.bind(this)} />
         <Table testProps={this.state.isClicked} taskName_array={taskName_array} />
-
-
-
-      </div>
+      </>
 
 
     );
