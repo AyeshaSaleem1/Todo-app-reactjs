@@ -16,9 +16,8 @@ class App extends React.Component {
   }
 
   test = (param) => {
-    console.log("params ki value ====>", param)
     this.setState({ taskName_array: param })
-    this.state.isClicked = true;
+    this.state.isClicked = true
   }
 
 
